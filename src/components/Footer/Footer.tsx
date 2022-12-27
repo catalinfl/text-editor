@@ -1,9 +1,13 @@
 import "./Footer.sass"
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Footer = () => {
+  useEffect(() => {
+
+  }, [])
+  
   return (
-    <div>Footer</div>
+    <p> counter </p>
   )
 }
 

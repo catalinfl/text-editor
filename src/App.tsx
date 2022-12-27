@@ -1,28 +1,29 @@
-import FormInput from './components/FormInput/FormInput'
 import './App.sass'
 import TerminalInputs from './components/TerminalInputs/TerminalInputs'
 import Footer from './components/Footer/Footer'
-import React, { useEffect } from 'react'
+import React, { KeyboardEventHandler, useEffect } from 'react'
 import "./components/Terminal/Terminal.sass"
 import { useRef, useState } from 'react'
 
-function App() {
 
+
+function App() {
   
-      
     const terminalRef = useRef<HTMLInputElement | null>(null);
     const [terminalCommand, setTerminalCommand] = useState<string | null>(null);
     const [fontSize, setFontSize] = useState<number | null>(null);
     const [error, setError] = useState<boolean>(false);
     const [color, setColor] = useState<string | null>(null);
-    const [fontFamily, setFontFamily] = useState<string | null>(null)
     const [messages, setMessages] = useState<string | null>(null);
     const [backgroundColor, setBackgroundColor] = useState<string | null>(null);
     const [terminalInputColor, setTerminalInputColor] = useState<string | null>(null);
     const [terminalInputFontSize, setTerminalInputFontSize] = useState<string | null>(null);
     const [terminalInputBackgroundColor, setTerminalInputBackgroundColor] = useState<string | null>(null);
-    const [terminalInputFontFamily, setTerminalInputFontFamily] = useState<string | null>(null);
-  
+    const [count, setCount] = useState<number>(0);
+    const textareaRef = useRef<null | HTMLTextAreaElement>(null)
+    const codeRef = useRef<null | HTMLTextAreaElement>(null)
+    const [fromTemp, setFromTemp] = useState<number>(0)
+    const [toTemp, setToTemp] = useState<number>(0)  
   
     const onKeyPressed = (event: any) => {
       if (event.key === "Enter" && terminalRef.current!.value.split(" ").length === 2) {
@@ -38,8 +39,25 @@ function App() {
         terminalRef.current?.setSelectionRange(0, terminalRef.current.value.length)
       }
     }
-  
-    document.onkeydown = function (e) {
+
+
+    const onKeyPressedCode = (event: any) => {
+      setToTemp(codeRef.current!.value.length+2)
+      if (event.key === "Enter") {
+        setFromTemp(toTemp)
+      }
+      if (event.key === "a" && event.ctrlKey) {
+        codeRef.current!.setSelectionRange(0, codeRef.current!.value.length)
+      }
+      if (event.key === "l" && event.ctrlKey) {
+        codeRef.current!.setSelectionRange(fromTemp, toTemp)
+        setFromTemp(0)
+        setToTemp(0)
+      }
+    }
+    console.log(fromTemp, toTemp)
+
+    document.onkeydown = function (e: KeyboardEvent) {
       if (e.ctrlKey && e.key==="l") return false;
       if (e.ctrlKey && e.key==="a") return false;
       if (e.ctrlKey && e.key==="w") return false;
@@ -62,20 +80,12 @@ function App() {
         setBackgroundColor(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "terminalfontfamily" || commandP === "tfontfamily" || commandP === "terminalbackgroundcolor") {
-        setFontFamily(commandSplit[1])
-        createMessage(commandP as string)
-      }
       else if (commandP === "terminalinputfontsize" || commandP === "tifontsize" || commandP === "terminalinputfs") {
         setTerminalInputFontSize(commandSplit[1])
         createMessage(commandP as string)
       }
       else if (commandP === "terminalinputcolor" || commandP === "ticolor") {
         setTerminalInputColor(commandSplit[1])
-        createMessage(commandP as string)
-      }
-      else if (commandP === "terminalinputfontfamily" || commandP === "tifontfamily") {
-        setTerminalInputFontFamily(commandSplit[1])
         createMessage(commandP as string)
       }
       else if (commandP === "terminalinputbackgroundcolor" || commandP === "tibackground") {
@@ -91,7 +101,6 @@ function App() {
       setMessages(`${word} has been changed`)
     }
   
-  
     useEffect(() => {
       if (terminalCommand !== null) {
       initializeTerminalCommand(terminalCommand as string)
@@ -99,22 +108,21 @@ function App() {
     }, [terminalCommand])
     
 
-  
-
   return (
-    <div className="editor">
-      <FormInput />
-      <div className="terminal">
-          <input style={{
+  <div className="editor">
+    <div className="principalForm">
+        <textarea ref={codeRef} style={{fontSize: {fontSize} ? `${fontSize}px` : `12px`}} onKeyDown={onKeyPressedCode} className="principalInput"/>
+    </div>
+    <div className="terminal">
+      <input style={{
             fontSize: `${fontSize}` ? `${fontSize}px` : `12px`,
             color: `${color}` ? `${color}` : "black",
-            backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "red",
-            fontFamily: `${fontFamily}` ? `${fontFamily}` : "Arial"
+            backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "black",
             }} ref={terminalRef} onKeyDown={onKeyPressed} type="text" className="terminalInput" />
-          <TerminalInputs fontFamily={terminalInputFontFamily} color={terminalInputColor} backgroundColor={terminalInputBackgroundColor} fontSize={terminalInputFontSize} messages={messages}/>
-      </div>
-      <Footer />
+          <TerminalInputs color={terminalInputColor} backgroundColor={terminalInputBackgroundColor} fontSize={terminalInputFontSize} messages={messages}/>
     </div>
+      <Footer />
+  </div>
   )
 }
 

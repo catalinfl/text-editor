@@ -13,10 +13,10 @@ type terminalInputs = {
 const TerminalInputs = ({messages, color, backgroundColor, fontSize, fontFamily}: terminalInputs) => {
   return (
     <div className="terminalInputs" style={{
-          fontSize: `${fontSize}` ? `${fontSize}px` : `12px`,
+          fontSize: `${fontSize}` ? `${fontSize}px` : `15px`,
           color: `${color}` ? `${color}` : "black",
           backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "red",
-          fontFamily: `${fontFamily}` ? `${fontFamily}` : "Arial"
+          fontFamily: `${fontFamily}` ? `${fontFamily}` : "Verdana"
     }}>
         <p className="helloMessage"> Welcome to text editor! </p>
         <p> {messages} </p>
