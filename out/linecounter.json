@@ -1,0 +1,181 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "c:\\Users\\catal\\text-editor",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2022-12-27 02:01:36",
+            "filesum": 20,
+            "codesum": 1898,
+            "commentsum": 12,
+            "blanksum": 102,
+            "statistics": {
+                ".json": {
+                    "code": 1660,
+                    "comment": 0,
+                    "blank": 65
+                },
+                ".ts": {
+                    "code": 8,
+                    "comment": 2,
+                    "blank": 1
+                },
+                ".tsx": {
+                    "code": 156,
+                    "comment": 0,
+                    "blank": 25
+                },
+                ".css": {
+                    "code": 0,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".sass": {
+                    "code": 45,
+                    "comment": 1,
+                    "blank": 10
+                },
+                "": {
+                    "code": 15,
+                    "comment": 9,
+                    "blank": 1
+                },
+                ".svg": {
+                    "code": 1,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".html": {
+                    "code": 13,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 9,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "index.html"
+                },
+                {
+                    "blank": 65,
+                    "code": 1607,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "public\\vite.svg"
+                },
+                {
+                    "blank": 8,
+                    "code": 22,
+                    "comment": 1,
+                    "filename": "src\\App.sass"
+                },
+                {
+                    "blank": 15,
+                    "code": 115,
+                    "comment": 0,
+                    "filename": "src\\App.tsx"
+                },
+                {
+                    "filename": "src\\assets\\FiraCode-Regular.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\Hack-Regular.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\components\\Footer\\Footer.sass"
+                },
+                {
+                    "blank": 4,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\Footer\\Footer.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\components\\Terminal\\Terminal.sass"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\components\\TerminalInputs\\TerminalInputs.sass"
+                },
+                {
+                    "blank": 4,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\components\\TerminalInputs\\TerminalInputs.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\index.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\main.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 1,
+                    "filename": "src\\vite-env.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "tsconfig.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "tsconfig.node.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 1,
+                    "filename": "vite.config.ts"
+                }
+            ]
+        }
+    ]
+}

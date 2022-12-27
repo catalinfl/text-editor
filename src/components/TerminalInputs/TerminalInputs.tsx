@@ -14,9 +14,9 @@ const TerminalInputs = ({messages, color, backgroundColor, fontSize, fontFamily}
   return (
     <div className="terminalInputs" style={{
           fontSize: `${fontSize}` ? `${fontSize}px` : `15px`,
-          color: `${color}` ? `${color}` : "black",
-          backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "red",
-          fontFamily: `${fontFamily}` ? `${fontFamily}` : "Verdana"
+          color: `${color}` ? `${color}` : "white",
+          backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "black",
+          fontFamily: `${fontFamily}` ? `${fontFamily}` : "Hack"
     }}>
         <p className="helloMessage"> Welcome to text editor! </p>
         <p> {messages} </p>

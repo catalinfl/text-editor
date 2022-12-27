@@ -1,0 +1,44 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-12-27 02:01:36
+count workspace : c:\Users\catal\text-editor
+total files : 20
+total code lines : 1898
+total comment lines : 12
+total blank lines : 102
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .json|           1660|              0|             65|     87|
+   |            .ts|              8|              2|              1|   0.42|
+   |           .tsx|            156|              0|             25|    8.2|
+   |           .css|              0|              0|              0|    0.0|
+   |          .sass|             45|              1|             10|    2.4|
+   |               |             15|              9|              1|   0.79|
+   |           .svg|              1|              0|              0|  0.053|
+   |          .html|             13|              0|              0|   0.68|
+   -------------------------------------------------------------------------
+.gitignore, code is 15, comment is 9, blank is 1.
+index.html, code is 13, comment is 0, blank is 0.
+package-lock.json, code is 1607, comment is 0, blank is 65.
+package.json, code is 23, comment is 0, blank is 0.
+public\vite.svg, code is 1, comment is 0, blank is 0.
+src\App.sass, code is 22, comment is 1, blank is 8.
+src\App.tsx, code is 115, comment is 0, blank is 15.
+src\assets\FiraCode-Regular.ttf, it is a binary file.
+src\assets\Hack-Regular.ttf, it is a binary file.
+src\components\Footer\Footer.sass, code is 0, comment is 0, blank is 0.
+src\components\Footer\Footer.tsx, code is 10, comment is 0, blank is 4.
+src\components\Terminal\Terminal.sass, code is 17, comment is 0, blank is 2.
+src\components\TerminalInputs\TerminalInputs.sass, code is 6, comment is 0, blank is 0.
+src\components\TerminalInputs\TerminalInputs.tsx, code is 23, comment is 0, blank is 4.
+src\index.css, code is 0, comment is 0, blank is 0.
+src\main.tsx, code is 8, comment is 0, blank is 2.
+src\vite-env.d.ts, code is 0, comment is 1, blank is 0.
+tsconfig.json, code is 21, comment is 0, blank is 0.
+tsconfig.node.json, code is 9, comment is 0, blank is 0.
+vite.config.ts, code is 8, comment is 1, blank is 1.
+===============================================================================
