@@ -1,9 +1,18 @@
 import React from 'react'
 import './Header.sass'
-const Header = () => {
+type HeaderProps = {
+  color?: string;
+  backgroundColor: string;
+}
+const Header = ({color, backgroundColor}: HeaderProps) => {
   return (
-    <div className="header">
-        header
+    <div className="header"
+      style={{
+        color: `${color}` ? `${color}` : 'black',
+        backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : 'yellow'
+      }}
+    >
+       <p> Text editor </p>
     </div>
   )
 }

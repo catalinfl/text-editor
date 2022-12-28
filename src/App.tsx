@@ -24,6 +24,11 @@ function App() {
     const [codeBackgroundColor, setCodeBackgroundColor] = useState<string>("")
     const [codeFontSize, setCodeFontSize] = useState<string>("")
     const [codeColor, setCodeColor] = useState<string>("");
+    const [footerBackgroundColor, setFooterBackgroundColor] = useState<string>("")
+    const [footerColor, setFooterColor] = useState<string>("");
+    const [headerBackgroundColor, setHeaderBackgroundColor] = useState<string>("")
+    const [headerColor, setHeaderColor] = useState<string>("");
+    const [background, setBackground] = useState<string>("");
 
     const onKeyPressed = (event: any) => {
       if (event.key === "Enter") {
@@ -95,6 +100,37 @@ function App() {
         setCodeBackgroundColor(commandSplit[1])
         createMessage(commandP as string)
       }
+      else if (commandP === "fc" || commandP === "footerc") {
+        setFooterColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "fbc" || commandP === "footerbc") {
+        setFooterBackgroundColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "hc" || commandP === "headerc") {
+        setHeaderColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "hbc" || commandP === "headerbc") {
+        setHeaderBackgroundColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "background" || commandP === "setb") {
+        setBackground(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "theme") {
+        setBackgroundColor(commandSplit[1])
+        setHeaderBackgroundColor(commandSplit[1])
+        setFooterBackgroundColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "btheme") {
+        setTerminalInputBackgroundColor(commandSplit[1])
+        setCodeBackgroundColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
       else
       setMessages(`${commandP} is not a command`)
     }
@@ -103,28 +139,31 @@ function App() {
       if (word === null) return;
       setMessages(`${word} has been changed`)
     }
-  
+
+    
     useEffect(() => {
       if (terminalCommand !== null) {
-      initializeTerminalCommand(terminalCommand as string)
+        initializeTerminalCommand(terminalCommand as string)
     }
     }, [terminalCommand])
     
 
   return (
+  <body style={{ backgroundColor: `${background}` ? `${background}` : `black`}}>
   <div className="editor">
-    <Header />
+    <Header color={headerColor} backgroundColor={headerBackgroundColor}/>
     <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
     <div className="terminal">
-      <input placeholder='Use help to see all commands' style={{
+      <input spellCheck="false" placeholder='Use help to see all commands' style={{
             fontSize: `${fontSize}` ? `${fontSize}px` : `30px`,
             color: `${color}` ? `${color}` : 'white',
             backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "yellow",
             }} ref={terminalRef} onKeyDown={onKeyPressed} type="text" className="terminalInput" />
       <TerminalInputs color={terminalInputColor} backgroundColor={terminalInputBackgroundColor} fontSize={terminalInputFontSize} messages={messages}/>
     </div>
-      <Footer />
+      <Footer color={footerColor as string} backgroundColor={footerBackgroundColor}/>
   </div>
+  </body>
   )
 }
 
