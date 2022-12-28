@@ -38,7 +38,7 @@ function App() {
       else if (event.ctrlKey && event.key === 'l' || event.ctrlKey && event.key === 'a') {
         terminalRef.current?.setSelectionRange(0, terminalRef.current.value.length)
       }
-      if (event.keyCode === 38 && cmds.length > 0) {
+      if (event.keyCode === 38) {
         terminalRef.current!.value = terminalCommand as string
         terminalRef.current?.setSelectionRange(0, terminalRef.current.value.length)
       }
