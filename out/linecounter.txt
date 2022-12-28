@@ -42,3 +42,49 @@ tsconfig.json, code is 21, comment is 0, blank is 0.
 tsconfig.node.json, code is 9, comment is 0, blank is 0.
 vite.config.ts, code is 8, comment is 1, blank is 1.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-12-28 02:38:15
+count workspace : c:\Users\catal\text-editor
+total files : 22
+total code lines : 1955
+total comment lines : 14
+total blank lines : 116
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .json|           1660|              0|             65|     85|
+   |            .ts|              8|              2|              1|   0.41|
+   |           .tsx|            215|              2|             38|     11|
+   |           .css|              0|              0|              0|    0.0|
+   |          .sass|             43|              1|             11|    2.2|
+   |           .svg|              1|              0|              0|  0.051|
+   |               |             15|              9|              1|   0.77|
+   |          .html|             13|              0|              0|   0.66|
+   -------------------------------------------------------------------------
+.gitignore, code is 15, comment is 9, blank is 1.
+index.html, code is 13, comment is 0, blank is 0.
+package-lock.json, code is 1607, comment is 0, blank is 65.
+package.json, code is 23, comment is 0, blank is 0.
+public\vite.svg, code is 1, comment is 0, blank is 0.
+src\App.sass, code is 11, comment is 0, blank is 7.
+src\App.tsx, code is 113, comment is 0, blank is 14.
+src\assets\FiraCode-Regular.ttf, it is a binary file.
+src\assets\Hack-Regular.ttf, it is a binary file.
+src\components\Footer\Footer.sass, code is 0, comment is 0, blank is 0.
+src\components\Footer\Footer.tsx, code is 10, comment is 0, blank is 4.
+src\components\Principal\Principal.sass, code is 11, comment is 1, blank is 1.
+src\components\Principal\Principal.tsx, code is 61, comment is 2, blank is 14.
+src\components\Terminal\Terminal.sass, code is 16, comment is 0, blank is 3.
+src\components\TerminalInputs\TerminalInputs.sass, code is 5, comment is 0, blank is 0.
+src\components\TerminalInputs\TerminalInputs.tsx, code is 23, comment is 0, blank is 4.
+src\index.css, code is 0, comment is 0, blank is 0.
+src\main.tsx, code is 8, comment is 0, blank is 2.
+src\vite-env.d.ts, code is 0, comment is 1, blank is 0.
+tsconfig.json, code is 21, comment is 0, blank is 0.
+tsconfig.node.json, code is 9, comment is 0, blank is 0.
+vite.config.ts, code is 8, comment is 1, blank is 1.
+===============================================================================

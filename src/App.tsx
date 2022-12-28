@@ -5,6 +5,7 @@ import React, { KeyboardEventHandler, useEffect } from 'react'
 import "./components/Terminal/Terminal.sass"
 import { useRef, useState } from 'react'
 import Principal from './components/Principal/Principal'
+import Header from './components/Header/Header'
 
 
 
@@ -23,7 +24,7 @@ function App() {
     const [codeBackgroundColor, setCodeBackgroundColor] = useState<string>("")
     const [codeFontSize, setCodeFontSize] = useState<string>("")
     const [codeColor, setCodeColor] = useState<string>("");
-    
+
     const onKeyPressed = (event: any) => {
       if (event.key === "Enter") {
         setTerminalCommand(terminalRef.current!.value)
@@ -37,9 +38,12 @@ function App() {
       else if (event.ctrlKey && event.key === 'l' || event.ctrlKey && event.key === 'a') {
         terminalRef.current?.setSelectionRange(0, terminalRef.current.value.length)
       }
+      if (event.keyCode === 38 && cmds.length > 0) {
+        terminalRef.current!.value = terminalCommand as string
+        terminalRef.current?.setSelectionRange(0, terminalRef.current.value.length)
+      }
     }
 
-    console.log(codeFontSize)
 
     document.onkeydown = function (e: KeyboardEvent) {
       if (e.ctrlKey && e.key==="l") return false;
@@ -109,6 +113,7 @@ function App() {
 
   return (
   <div className="editor">
+    <Header />
     <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
     <div className="terminal">
       <input placeholder='Use help to see all commands' style={{
@@ -116,7 +121,7 @@ function App() {
             color: `${color}` ? `${color}` : 'white',
             backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "yellow",
             }} ref={terminalRef} onKeyDown={onKeyPressed} type="text" className="terminalInput" />
-          <TerminalInputs color={terminalInputColor} backgroundColor={terminalInputBackgroundColor} fontSize={terminalInputFontSize} messages={messages}/>
+      <TerminalInputs color={terminalInputColor} backgroundColor={terminalInputBackgroundColor} fontSize={terminalInputFontSize} messages={messages}/>
     </div>
       <Footer />
   </div>
