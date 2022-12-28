@@ -15,7 +15,7 @@ function App() {
     const [fontSize, setFontSize] = useState<number>(20);
     const [error, setError] = useState<boolean>(false);
     const [color, setColor] = useState<string | null>(null);
-    const [messages, setMessages] = useState<string | null>(null);
+    const [messages, setMessages] = useState<string>("");
     const [backgroundColor, setBackgroundColor] = useState<string>("");
     const [terminalInputColor, setTerminalInputColor] = useState<string>("");
     const [terminalInputFontSize, setTerminalInputFontSize] = useState<string>("");
@@ -39,6 +39,7 @@ function App() {
       }
     }
 
+    console.log(codeFontSize)
 
     document.onkeydown = function (e: KeyboardEvent) {
       if (e.ctrlKey && e.key==="l") return false;
@@ -54,28 +55,40 @@ function App() {
       console.log(command.split(" ").length)
       return setMessages(`${commandP} is not a command`)
       }
-      if (commandP === "terminalfontsize" || commandP === "tfontsize") {
+      if (commandP === "tfs" || commandP === "tfontsize") {
         setFontSize(parseInt(commandSplit[1]) > 11 ? parseInt(commandSplit[1]) : 12)
         createMessage(commandP as string)
       }
-      else if (commandP === "terminalcolor" || commandP === "tcolor") {
+      else if (commandP === "tc" || commandP === "tcolor") {
         setColor(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "terminalbcolor" || commandP === "tbcolor" || commandP === "terminalbackgroundcolor") {
+      else if (commandP === "tbcolor" || commandP === "tbc") {
         setBackgroundColor(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "terminalinputfontsize" || commandP === "tifontsize" || commandP === "terminalinputfs") {
+      else if (commandP === "tifs" || commandP === "tifontsize") {
         setTerminalInputFontSize(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "terminalinputcolor" || commandP === "ticolor") {
+      else if (commandP === "tic" || commandP === "ticolor") {
         setTerminalInputColor(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "terminalinputbackgroundcolor" || commandP === "tibackground") {
+      else if (commandP === "tibackground" || commandP === "tibc") {
         setTerminalInputBackgroundColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "codefontsize" || commandP === "codefs") {
+        setCodeFontSize(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "codecolor" || commandP === "codec") {
+        setCodeColor(commandSplit[1])
+        createMessage(commandP as string)
+      }
+      else if (commandP === "codebackgroundcolor" || commandP === "codebc") {
+        setCodeBackgroundColor(commandSplit[1])
         createMessage(commandP as string)
       }
       else
@@ -96,10 +109,10 @@ function App() {
 
   return (
   <div className="editor">
-    <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={fontSize}/>
+    <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
     <div className="terminal">
       <input placeholder='Use help to see all commands' style={{
-            fontSize: `${fontSize}` ? `${fontSize}px` : `12px`,
+            fontSize: `${fontSize}` ? `${fontSize}px` : `30px`,
             color: `${color}` ? `${color}` : 'white',
             backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "yellow",
             }} ref={terminalRef} onKeyDown={onKeyPressed} type="text" className="terminalInput" />

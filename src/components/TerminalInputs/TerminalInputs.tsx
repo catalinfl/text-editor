@@ -2,11 +2,11 @@ import React from 'react'
 import './TerminalInputs.sass'
 
 type terminalInputs = {
-  messages: string | null
-  color?: string | null,
-  backgroundColor?: string | null
-  fontSize?: string | null
-  fontFamily?: string | null
+  messages: string
+  color?: string 
+  backgroundColor?: string
+  fontSize?: string
+  fontFamily?: string
 }
 
 
@@ -16,7 +16,7 @@ const TerminalInputs = ({messages, color, backgroundColor, fontSize, fontFamily}
           fontSize: `${fontSize}` ? `${fontSize}px` : `15px`,
           color: `${color}` ? `${color}` : "white",
           backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "black",
-          fontFamily: `${fontFamily}` ? `${fontFamily}` : "Hack"
+          fontFamily: `${fontFamily}` && `${fontFamily}` 
     }}>
         <p className="helloMessage"> Welcome to text editor! </p>
         <p> {messages} </p>
