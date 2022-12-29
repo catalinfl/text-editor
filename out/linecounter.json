@@ -362,6 +362,204 @@
                     "filename": "vite.config.ts"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2022-12-28 23:23:08",
+            "filesum": 24,
+            "codesum": 2078,
+            "commentsum": 13,
+            "blanksum": 131,
+            "statistics": {
+                ".json": {
+                    "code": 1660,
+                    "comment": 0,
+                    "blank": 65
+                },
+                ".ts": {
+                    "code": 8,
+                    "comment": 2,
+                    "blank": 1
+                },
+                ".tsx": {
+                    "code": 300,
+                    "comment": 2,
+                    "blank": 49
+                },
+                ".css": {
+                    "code": 0,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".svg": {
+                    "code": 1,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".sass": {
+                    "code": 81,
+                    "comment": 0,
+                    "blank": 15
+                },
+                "": {
+                    "code": 15,
+                    "comment": 9,
+                    "blank": 1
+                },
+                ".html": {
+                    "code": 13,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 9,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "index.html"
+                },
+                {
+                    "blank": 65,
+                    "code": 1607,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "public\\vite.svg"
+                },
+                {
+                    "blank": 6,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\App.sass"
+                },
+                {
+                    "blank": 15,
+                    "code": 156,
+                    "comment": 0,
+                    "filename": "src\\App.tsx"
+                },
+                {
+                    "filename": "src\\assets\\FiraCode-Regular.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\Hack-Regular.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\Footer\\Footer.sass"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\Footer\\Footer.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\components\\Header\\Header.sass"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\Header\\Header.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\components\\Principal\\Principal.sass"
+                },
+                {
+                    "blank": 14,
+                    "code": 61,
+                    "comment": 2,
+                    "filename": "src\\components\\Principal\\Principal.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\components\\Terminal\\Terminal.sass"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\components\\TerminalInputs\\TerminalInputs.sass"
+                },
+                {
+                    "blank": 13,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\TerminalInputs\\TerminalInputs.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\index.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\main.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 1,
+                    "filename": "src\\vite-env.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "tsconfig.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "tsconfig.node.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 1,
+                    "filename": "vite.config.ts"
+                }
+            ]
         }
     ]
 }

@@ -6,6 +6,7 @@ import "./components/Terminal/Terminal.sass"
 import { useRef, useState } from 'react'
 import Principal from './components/Principal/Principal'
 import Header from './components/Header/Header'
+import Help from './components/Help/Help'
 
 
 
@@ -29,6 +30,7 @@ function App() {
     const [headerBackgroundColor, setHeaderBackgroundColor] = useState<string>("")
     const [headerColor, setHeaderColor] = useState<string>("");
     const [background, setBackground] = useState<string>("");
+    const [isHelpShow, setIsHelpShow] = useState<boolean>(false)
 
     const onKeyPressed = (event: any) => {
       if (event.key === "Enter") {
@@ -60,6 +62,10 @@ function App() {
     function initializeTerminalCommand (command: string): void {
       let commandSplit = command.split(" ")
       let commandP: string = commandSplit[0].toLowerCase();
+      if (commandP === "help") {
+        setIsHelpShow(true)
+        return
+      }
       if (command.split(" ").length !== 2) {
       console.log(command.split(" ").length)
       return setMessages(`${commandP} is not a command`)
@@ -145,14 +151,20 @@ function App() {
       if (terminalCommand !== null) {
         initializeTerminalCommand(terminalCommand as string)
     }
-    }, [terminalCommand])
-    
+  }, [terminalCommand])
+
+  useEffect(() => {
+    if (terminalCommand !== null) {
+      initializeTerminalCommand(terminalCommand as string)
+  }
+}, [terminalCommand])
+  
 
   return (
-  <body style={{ backgroundColor: `${background}` ? `${background}` : `black`}}>
   <div className="editor">
     <Header color={headerColor} backgroundColor={headerBackgroundColor}/>
     <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
+    <Help isShow={isHelpShow}/>
     <div className="terminal">
       <input spellCheck="false" placeholder='Use help to see all commands' style={{
             fontSize: `${fontSize}` ? `${fontSize}px` : `30px`,
@@ -163,7 +175,6 @@ function App() {
     </div>
       <Footer color={footerColor as string} backgroundColor={footerBackgroundColor}/>
   </div>
-  </body>
   )
 }
 

@@ -20,9 +20,6 @@ const TerminalInputs = ({messages, color, backgroundColor, fontSize, fontFamily}
   const welcomeMessage = () => {
     test = setInterval(() => {setTimeSpent(false) }, 5000)
   }
-
-  
-  
   
   const welcomeRef = useRef<HTMLParagraphElement>(null);
 
