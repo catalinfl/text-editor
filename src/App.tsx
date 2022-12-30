@@ -66,6 +66,10 @@ function App() {
         setIsHelpShow(true)
         return
       }
+      if (commandP === "close") {
+        setIsHelpShow(false)
+        return
+      }
       if (command.split(" ").length !== 2) {
       console.log(command.split(" ").length)
       return setMessages(`${commandP} is not a command`)
@@ -158,15 +162,14 @@ function App() {
       initializeTerminalCommand(terminalCommand as string)
   }
 }, [terminalCommand])
-  
 
   return (
   <div className="editor">
     <Header color={headerColor} backgroundColor={headerBackgroundColor}/>
     <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
-    <Help isShow={isHelpShow}/>
+    <Help isShow={isHelpShow} border={headerColor} backgroundBorderColor={backgroundColor}/>
     <div className="terminal">
-      <input spellCheck="false" placeholder='Use help to see all commands' style={{
+      <input spellCheck="false" placeholder={isHelpShow ? 'Type close to delete the help window': 'Use help to see all commands'} style={{
             fontSize: `${fontSize}` ? `${fontSize}px` : `30px`,
             color: `${color}` ? `${color}` : 'white',
             backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "yellow",

@@ -1,40 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Help.sass"
 import { useRef } from 'react'
 
 type HelpProps = {
     color?: string
     backgroundColor?: string
-    isShow?: boolean
+    isShow: boolean
+    border: string
+    backgroundBorderColor: string
 }
 
 
 
-const Help = ({color, backgroundColor, isShow}: HelpProps) => {
+const Help = ({color, backgroundColor, border, backgroundBorderColor, isShow}: HelpProps) => {
 
     const helpBarHook = useRef<HTMLDivElement>(null);
     const drag = useRef<HTMLDivElement>(null);
+    const [helpOn, setHelpOn] = useState<boolean>(false)
 
-    window.onload = () => {
+    useEffect(() => {
+      setHelpOn(isShow) 
+    }, [isShow])
+
+
+    
     const dragElement = (element: HTMLDivElement) => {
         let pos1 = 0,
           pos2 = 0,
           pos3 = 0,
           pos4 = 0;
-    //MouseUp occurs when the user releases the mouse button
         const dragMouseUp = () => {
           document.onmouseup = null;
-    //onmousemove attribute fires when the pointer is moving while it is over an element.
           document.onmousemove = null;
-    
         };
     
         const dragMouseMove = (event: MouseEvent) => {
     
           event.preventDefault();
-    //clientX property returns the horizontal coordinate of the mouse pointer
           pos1 = pos3 - event.clientX;
-    //clientY property returns the vertical coordinate of the mouse pointer
           pos2 = pos4 - event.clientY;
           pos3 = event.clientX;
           pos4 = event.clientY;
@@ -53,27 +56,39 @@ const Help = ({color, backgroundColor, isShow}: HelpProps) => {
           document.onmouseup = dragMouseUp;
           document.onmousemove = dragMouseMove;
         };
-    
         element.onmousedown = dragMouseDown;
       };
 
-    dragElement(helpBarHook.current!)
-    }
-    console.log(isShow)
+    useEffect(() => {
+      if (helpOn) {
+      dragElement(helpBarHook.current!)
+      }
+      setHelpOn(isShow)
+    }, [helpOn])
+
+  
 
 return (
-<> 
+<div className="helpContainer">
+
+{helpOn && 
     <div className="help" ref={helpBarHook} draggable style={{
-        backgroundColor: "white",
+        backgroundColor: "black",
+        border: `${backgroundBorderColor}` ? `solid 1px ${backgroundBorderColor}` : "solid 1px yellow"
     }}>
-        <div className="helpHeader">
-            Test 
+        <div className="helpHeader" style={{
+          backgroundColor: `${backgroundBorderColor}` ? `${backgroundBorderColor}` : "yellow"
+        }}>
+          <div className="helpTitle">
+          Help window
+          </div>
         </div>
         <div className="helpBody">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dolorem!
         </div>
     </div>
-</>
+}
+</div>
     )
 }
 
