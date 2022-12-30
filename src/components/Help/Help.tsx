@@ -73,8 +73,10 @@ return (
 
 {helpOn && 
     <div className="help" ref={helpBarHook} draggable style={{
-        backgroundColor: "black",
-        border: `${backgroundBorderColor}` ? `solid 1px ${backgroundBorderColor}` : "solid 1px yellow"
+      backgroundColor: "black",
+      borderColor: `${backgroundBorderColor}` ? `${backgroundBorderColor}` : "yellow",
+      borderStyle: 'solid',
+      borderWidth: '5px'
     }}>
         <div className="helpHeader" style={{
           backgroundColor: `${backgroundBorderColor}` ? `${backgroundBorderColor}` : "yellow"
@@ -84,7 +86,56 @@ return (
           </div>
         </div>
         <div className="helpBody">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dolorem!
+            <ul>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> close </b> - close the help window </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> theme </b> - change secondary colors in text editor </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> btheme </b> - change background colors in text editor </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> tfs or tfontsize </b> - change terminal fontsize </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> tc or tcolor </b> - change terminal color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}>tbc or tbcolor </b> - change terminal background color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> tofs or tofontsize </b> - change  terminal output fontsize </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> toc or tocolor </b> - change terminal output font color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> tobc or tobackground </b> - change terminal output </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> codefs or codefontsize </b> - change text editor font size</li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> codec or codecolor </b> - change text editor color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> codebc or codebackgroundcolor </b> - change text editor color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> fc or footerc </b> - change footer text color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> fbc or footerbc </b> - change footer background color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> hc or headerc </b> - change header text color </li>
+              <li> <b style={{
+                color: `${backgroundBorderColor}` || "yellow"
+              }}> hbc or headerbc </b> - change header background color </li>
+            </ul>
         </div>
     </div>
 }

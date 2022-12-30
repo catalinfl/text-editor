@@ -86,15 +86,15 @@ function App() {
         setBackgroundColor(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "tifs" || commandP === "tifontsize") {
+      else if (commandP === "tofs" || commandP === "tofontsize") {
         setTerminalInputFontSize(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "tic" || commandP === "ticolor") {
+      else if (commandP === "toc" || commandP === "tocolor") {
         setTerminalInputColor(commandSplit[1])
         createMessage(commandP as string)
       }
-      else if (commandP === "tibackground" || commandP === "tibc") {
+      else if (commandP === "tobackground" || commandP === "tobc") {
         setTerminalInputBackgroundColor(commandSplit[1])
         createMessage(commandP as string)
       }
@@ -124,10 +124,6 @@ function App() {
       }
       else if (commandP === "hbc" || commandP === "headerbc") {
         setHeaderBackgroundColor(commandSplit[1])
-        createMessage(commandP as string)
-      }
-      else if (commandP === "background" || commandP === "setb") {
-        setBackground(commandSplit[1])
         createMessage(commandP as string)
       }
       else if (commandP === "theme") {
