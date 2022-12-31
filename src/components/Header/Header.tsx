@@ -8,11 +8,12 @@ const Header = ({color, backgroundColor}: HeaderProps) => {
   return (
     <div className="header"
       style={{
+        padding: '3px 0px',
         color: `${color}` ? `${color}` : 'black',
         backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : 'yellow'
       }}
     >
-       <p> Text editor </p>
+       <p> &#127919; Text editor </p>
     </div>
   )
 }

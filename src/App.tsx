@@ -11,7 +11,6 @@ import Help from './components/Help/Help'
 
 
 function App() {
-  
     const terminalRef = useRef<HTMLInputElement | null>(null);
     const [terminalCommand, setTerminalCommand] = useState<string | null>(null);
     const [fontSize, setFontSize] = useState<number>(20);
@@ -29,7 +28,6 @@ function App() {
     const [footerColor, setFooterColor] = useState<string>("");
     const [headerBackgroundColor, setHeaderBackgroundColor] = useState<string>("")
     const [headerColor, setHeaderColor] = useState<string>("");
-    const [background, setBackground] = useState<string>("");
     const [isHelpShow, setIsHelpShow] = useState<boolean>(false)
 
     const onKeyPressed = (event: any) => {
@@ -64,14 +62,30 @@ function App() {
       let commandP: string = commandSplit[0].toLowerCase();
       if (commandP === "help") {
         setIsHelpShow(true)
+        createMessage(commandP as string)
         return
       }
       if (commandP === "close") {
         setIsHelpShow(false)
+        createMessage(commandP as string)
+        return
+      }
+      if (commandP === "reset") {
+        createMessage(commandP as string)
+        setBackgroundColor("")
+        setHeaderBackgroundColor("")
+        setHeaderColor("")
+        setFooterBackgroundColor("")
+        setFooterColor("")
+        setCodeColor("")
+        setCodeFontSize("")
+        setCodeBackgroundColor("")
+        setTerminalInputBackgroundColor("")
+        setTerminalInputColor("")
+        setTerminalInputFontSize("")
         return
       }
       if (command.split(" ").length !== 2) {
-      console.log(command.split(" ").length)
       return setMessages(`${commandP} is not a command`)
       }
       if (commandP === "tfs" || commandP === "tfontsize") {
@@ -143,6 +157,18 @@ function App() {
     
     function createMessage(word: string) {
       if (word === null) return;
+      if (word === "help") {
+        setMessages("help window is active, you can move it in page")
+        return;
+      }
+      if (word === "close") {
+        setMessages("window has been closed")
+        return;
+      }
+      if (word === "reset") {
+        setMessages("theme is now default")
+        return;
+      }
       setMessages(`${word} has been changed`)
     }
 
@@ -153,11 +179,8 @@ function App() {
     }
   }, [terminalCommand])
 
-  useEffect(() => {
-    if (terminalCommand !== null) {
-      initializeTerminalCommand(terminalCommand as string)
-  }
-}, [terminalCommand])
+
+
 
   return (
   <div className="editor">
