@@ -6,22 +6,28 @@ import { useRef, useState } from 'react'
 type PrincipalProps = {
     fontSize?: string | number;
     backgroundColor?: string;
-    color?: string;
+    color?: string,
+    scrollColor?: string
 }
 
-const Principal = ({fontSize, color, backgroundColor}: PrincipalProps) => {
+const Principal = ({fontSize, color, backgroundColor, scrollColor}: PrincipalProps) => {
 
   const codeRef = useRef<HTMLTextAreaElement | null>(null);
   const [fromTemp, setFromTemp] = useState<number | null>(null)
   const [toTemp, setToTemp] = useState< number | null>(null)
   const [code, setCode] = useState<string>('')
   const [tempCode, setTempCode] = useState<string>('')
+  const text: string[][] = []
 
   document.onkeydown = function (e: KeyboardEvent) {
     if (e.ctrlKey && e.key==="l") return false;
     if (e.ctrlKey && e.key==="a") return false;
     if (e.ctrlKey && e.key==="d") return false;
-}
+  }
+
+  const setText = (text: string) => {
+    
+  }
 
 
   const onKeyPressedCode = (event: any) => {
@@ -29,7 +35,6 @@ const Principal = ({fontSize, color, backgroundColor}: PrincipalProps) => {
     if (event.key === "Enter") {
       setFromTemp(toTemp)
       setCode(code)
-      console.log(codeRef.current?.value.split("\n").length)
       setTempCode("")
     }
     if (event.key === "a" && event.ctrlKey) {
@@ -58,6 +63,20 @@ const Principal = ({fontSize, color, backgroundColor}: PrincipalProps) => {
       return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
     });
   }
+
+  const createKeybinds = (word: string[]) => {
+    word.forEach(word => { 
+      var first: string = word.substring(0, word.indexOf('{'))
+      var second: string = word.substring(first.length+1, word.length)
+      setCode(first + second + '}')
+    })
+    }
+  
+
+  useEffect(() => {
+    createKeybinds(code.split(" "))
+  }, [code])
+
 
 
 
@@ -89,8 +108,9 @@ const Principal = ({fontSize, color, backgroundColor}: PrincipalProps) => {
     ' value={code} spellCheck={false} ref={codeRef} style={{
         fontSize: `${fontSize}` ? `${fontSize}px` : `30px`,
         color: `${color}` ? `${color}` : 'white',
-        backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "black"
-        }} onChange={() => setCode(codeRef.current!.value)} onKeyDown={onKeyPressedCode} className="principalInput"/>
+        backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "black",
+        '--color': `${scrollColor}` ? `${scrollColor}` : "yellow"
+        } as React.CSSProperties } onChange={() => setCode(codeRef.current!.value)} onKeyDown={onKeyPressedCode} className="principalInput"/>
     </div>
     )
 }

@@ -1,9 +1,10 @@
 .help
     position: absolute
-    top: 20vh
-    left: 34vw
     cursor: default
     border-radius: 10px
+    top: 10vh
+    left: 33vw
+    overflow-x: hidden
 
     /* Handle on hover */
     
@@ -12,17 +13,16 @@
     .helpHeader
         position: relative
         font-family: Hack
-        // border: solid 1px #000
         text-align: center
 
         
     .helpBody 
+        overflow-x: hidden
         color: white
         font-family: FiraCode
         font-size: 20px
-        width: 600px
-        height: 500px
-        
+        width: 34vw
+        height: 60vh
         overflow-y: scroll
 
         &::-webkit-scrollbar 
@@ -31,14 +31,14 @@
         
 
         &::-webkit-scrollbar-track 
-            box-shadow: inset 0 0 6px grey
+            box-shadow: inset 0 0 6px var(--color)
             border-radius: 10px
-        
+            margin-top: -3px        
         
         &::-webkit-scrollbar-thumb 
-            background: grey
-            border-radius: 10px
-        
+            background: var(--color)
+            border-radius: 50px
+
         ul 
             display: flex
             flex-direction: column

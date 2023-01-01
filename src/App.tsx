@@ -185,7 +185,7 @@ function App() {
   return (
   <div className="editor">
     <Header color={headerColor} backgroundColor={headerBackgroundColor}/>
-    <Principal backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
+    <Principal scrollColor={backgroundColor}  backgroundColor={codeBackgroundColor} color={codeColor} fontSize={codeFontSize}/>
     <Help isShow={isHelpShow} border={headerColor} backgroundBorderColor={backgroundColor}/>
     <div className="terminal">
       <input spellCheck="false" placeholder={isHelpShow ? 'Type close to delete the help window': 'Use help to see all commands'} style={{

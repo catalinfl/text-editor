@@ -85,7 +85,10 @@ return (
           Help window
           </div>
         </div>
-        <div className="helpBody">
+        <div className="helpBody" style={{
+          '--color': `${backgroundBorderColor}` ? `${backgroundBorderColor}` : "yellow"
+        } as React.CSSProperties }
+                  >
             <ul>
               <li style={{
               }}> <b style={{
