@@ -64,19 +64,6 @@ const Principal = ({fontSize, color, backgroundColor, scrollColor}: PrincipalPro
     });
   }
 
-  const createKeybinds = (word: string[]) => {
-    word.forEach(word => { 
-      var first: string = word.substring(0, word.indexOf('{'))
-      var second: string = word.substring(first.length+1, word.length)
-      setCode(first + second + '}')
-    })
-    }
-  
-
-  useEffect(() => {
-    createKeybinds(code.split(" "))
-  }, [code])
-
 
 
 
