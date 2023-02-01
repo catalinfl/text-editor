@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Principal.sass'
 import { useRef, useState } from 'react'
+import { TextareaContext } from '../../redux/TextareaReducer'
 
 
 type PrincipalProps = {
@@ -10,23 +11,27 @@ type PrincipalProps = {
     scrollColor?: string
 }
 
-const Principal = ({fontSize, color, backgroundColor, scrollColor}: PrincipalProps) => {
 
+
+const Principal = ({fontSize, color, backgroundColor, scrollColor}: PrincipalProps) => {
+  
   const codeRef = useRef<HTMLTextAreaElement | null>(null);
   const [fromTemp, setFromTemp] = useState<number | null>(null)
   const [toTemp, setToTemp] = useState< number | null>(null)
   const [code, setCode] = useState<string>('')
   const [tempCode, setTempCode] = useState<string>('')
-  const text: string[][] = []
+  
+  const { state, dispatch } = useContext(TextareaContext);
+
+  useEffect(() => {
+    dispatch({ type: "SET_TEXTAREA", payload: code})
+  }, [code])
+
 
   document.onkeydown = function (e: KeyboardEvent) {
     if (e.ctrlKey && e.key==="l") return false;
     if (e.ctrlKey && e.key==="a") return false;
     if (e.ctrlKey && e.key==="d") return false;
-  }
-
-  const setText = (text: string) => {
-    
   }
 
 
@@ -64,12 +69,19 @@ const Principal = ({fontSize, color, backgroundColor, scrollColor}: PrincipalPro
     });
   }
 
+  const verifyWidth = () => {
+    if (window.innerWidth < 1500 && code.length === 0) {
+      codeRef.current!.placeholder = ""
+    }
+  }
 
-
+  useEffect(() => {
+    setInterval(() => verifyWidth(), 1000)
+  }, [])
 
   return (
     <div className="principalForm">
-    <textarea placeholder='
+    <textarea placeholder="
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣤⣤⣤⣀⣀⣀⣀⣀⣀⣀⣤⡤⠶⠶⠶⢶⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⠶⠾⠛⠛⠋⠉⠉⠉⠉⠉⢉⡉⠉⢙⣿⡿⠛⠉⠀⣀⡀⠀⠀⠀⠀⠉⠛⠷⣦⡀⠀⠀⠀⠀⠀⠀
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⠶⠛⠋⠉⠀⠀⢀⣠⣤⣄⣀⣀⣀⣤⣄⠈⠛⢀⡾⠋⠀⠀⠀⣾⡿⠃⠀⠀⠀⠀⠀⠀⠀⠘⢿⡄⠀⠀⠀⠀⠀
@@ -92,7 +104,7 @@ const Principal = ({fontSize, color, backgroundColor, scrollColor}: PrincipalPro
     ⢸⡇⣰⡿⠀⠀⠀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣰⣿⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     ⢸⣷⣿⡇⠀⠀⠀⠀⠀⠀⠀⣸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     ⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⣿⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⡄⠀⠀⠀⠀⠀⠀⠀⠀
-    ' value={code} spellCheck={false} ref={codeRef} style={{
+    " value={code} spellCheck={false} ref={codeRef} style={{
         fontSize: `${fontSize}` ? `${fontSize}px` : `30px`,
         color: `${color}` ? `${color}` : 'white',
         backgroundColor: `${backgroundColor}` ? `${backgroundColor}` : "black",

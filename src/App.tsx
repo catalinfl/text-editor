@@ -1,16 +1,17 @@
 import './App.sass'
 import TerminalInputs from './components/TerminalInputs/TerminalInputs'
 import Footer from './components/Footer/Footer'
-import React, { KeyboardEventHandler, useEffect } from 'react'
+import React, { KeyboardEventHandler, useContext, useEffect } from 'react'
 import "./components/Terminal/Terminal.sass"
 import { useRef, useState } from 'react'
 import Principal from './components/Principal/Principal'
 import Header from './components/Header/Header'
 import Help from './components/Help/Help'
-
+import { TextareaContext } from './redux/TextareaReducer'
 
 
 function App() {
+  
     const terminalRef = useRef<HTMLInputElement | null>(null);
     const [terminalCommand, setTerminalCommand] = useState<string | null>(null);
     const [fontSize, setFontSize] = useState<number>(20);
@@ -29,6 +30,8 @@ function App() {
     const [headerBackgroundColor, setHeaderBackgroundColor] = useState<string>("")
     const [headerColor, setHeaderColor] = useState<string>("");
     const [isHelpShow, setIsHelpShow] = useState<boolean>(false)
+
+
 
     const onKeyPressed = (event: any) => {
       if (event.key === "Enter") {
